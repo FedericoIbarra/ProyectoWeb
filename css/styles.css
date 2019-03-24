@@ -1,5 +1,4 @@
 .header{
-	position: fixed;
 	background-color: cyan;
 	width: 100%;
 }
@@ -38,4 +37,8 @@
 .edit-type{
 	margin: 4%;
 	width: 15rem;
+}
+
+.cont{
+  padding: 35px;
 }
