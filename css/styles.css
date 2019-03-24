@@ -1,6 +1,41 @@
-
+.header{
+	position: fixed;
+	background-color: cyan;
+	width: 100%;
+}
 
 .porciones-container{
+	padding: 1em;
 	background-color: lightblue;
 	width: 33%;
+}
+
+.porciones-cantidad{
+	position: relative;
+	margin-right: 7%;
+}
+
+.porcion{
+	padding-top: 7%;
+}
+
+.parte1{
+	background-color: lightgreen;
+	width: 100%;
+	margin: 0px;
+}
+
+.parte2{
+	background-color: pink;
+	width: 100%;
+	margin: 0px;
+}
+
+.card-title{
+	padding: 10%;
+}
+
+.edit-type{
+	margin: 4%;
+	width: 15rem;
 }
