@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Planes</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <style>
+        .btn-circle.btn-xl {
+            width: 70px;
+            height: 70px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 24px;
+            line-height: 1.33;
+        }
+
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.42857;
+        }
+
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.42857;
+        }
+
+        .modal-body {
+            max-height: calc(100vh - 210px);
+            overflow-y: auto;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!--Cuadro para editar información -->
+    <div class="modal fade show" id="editId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="false"
+        data-action="new" style="display: block">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nuevo Plan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="altaAlumno" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="">Nombre del Plan</label>
+                                <input type="text" class="form-control nombre" name="" id="nombreid"
+                                    aria-describedby="helpId" placeholder="Nombre del plan" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Descripción</label>
+                                <textarea class="form-control" name="Text1" cols="40" rows="4" name="" id=""
+                                    placeholder="Descripción del plan" required=""></textarea>
+                            </div>
+                            <div>
+                                <h5>Cereales</h5>
+                                <div class="form-group">
+                                    <label for="">Número de porciones</label>
+                                    <input type="number" class="form-control " min=0 name="" id=""
+                                        aria-describedby="helpId" placeholder="Porciones" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="float-left">Ejemplos de porciones</label>
+                                    <button type="button"
+                                        class="btn btn-success mr-2 ml-2 float-left btn-circle">+</button>
+                                    <button type="button"
+                                        class="btn btn-danger mr-2 ml-2 float-left btn-circle">-</button>
+                                    <input type="txt" class="form-control " name="" id="ejemploCereales0"
+                                        aria-describedby="helpId" placeholder="Ejemplo: 1/2 Taza de arroz" required="">
+
+                                </div>
+
+                                <div>
+                                    <h5>Vegetales</h5>
+                                    <div class="form-group">
+                                        <label for="">Número de porciones</label>
+                                        <input type="number" class="form-control " min=0 name="" id=""
+                                            aria-describedby="helpId" placeholder="Porciones" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="float-left">Ejemplos de porciones</label>
+                                        <button type="button"
+                                            class="btn btn-success mr-2 ml-2 float-left btn-circle">+</button>
+                                        <button type="button"
+                                            class="btn btn-danger mr-2 ml-2 float-left btn-circle">-</button>
+                                        <input type="txt" class="form-control " name="" id="ejemploVegetales0"
+                                            aria-describedby="helpId" placeholder="Ejemplo: 1/2 Taza de verdura cocida"
+                                            required="">
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h5>Frutas</h5>
+                                    <div class="form-group">
+                                        <label for="">Número de porciones</label>
+                                        <input type="number" class="form-control " min=0 name="" id=""
+                                            aria-describedby="helpId" placeholder="Porciones" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="float-left">Ejemplos de porciones</label>
+                                        <button type="button"
+                                            class="btn btn-success mr-2 ml-2 float-left btn-circle">+</button>
+                                        <button type="button"
+                                            class="btn btn-danger mr-2 ml-2 float-left btn-circle">-</button>
+                                        <input type="txt" class="form-control " name="" id="ejemploFrutas0"
+                                            aria-describedby="helpId" placeholder="Ejemplo: 1 fruta entera" required="">
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h5>Lácteos</h5>
+                                    <div class="form-group">
+                                        <label for="">Número de porciones</label>
+                                        <input type="number" class="form-control " min=0 name="" id=""
+                                            aria-describedby="helpId" placeholder="Porciones" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="float-left">Ejemplos de porciones</label>
+                                        <button type="button"
+                                            class="btn btn-success mr-2 ml-2 float-left btn-circle">+</button>
+                                        <button type="button"
+                                            class="btn btn-danger mr-2 ml-2 float-left btn-circle">-</button>
+                                        <input type="txt" class="form-control " name="" id="ejemploLacteos0"
+                                            aria-describedby="helpId" placeholder="Ejemplo: 1/2 Taza de arroz"
+                                            required="">
+
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <h5>Carnes</h5>
+                                    <div class="form-group">
+                                        <label for="">Número de porciones</label>
+                                        <input type="number" class="form-control " min=0 name="" id=""
+                                            aria-describedby="helpId" placeholder="Porciones" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="float-left">Ejemplos de porciones</label>
+                                        <button type="button"
+                                            class="btn btn-success mr-2 ml-2 float-left btn-circle">+</button>
+                                        <button type="button"
+                                            class="btn btn-danger mr-2 ml-2 float-left btn-circle">-</button>
+                                        <input type="txt" class="form-control " name="" id="ejemploCarnes0"
+                                            aria-describedby="helpId" placeholder="Ejemplo: 150gr de carne de res"
+                                            required="">
+
+                                    </div>
+                                </div>
+
+
+
+                                <div>
+                                    <h5>Grasas y Aceites</h5>
+                                    <div class="form-group">
+                                        <label for="">Número de porciones</label>
+                                        <input type="number" class="form-control " min=0 name="" id=""
+                                            aria-describedby="helpId" placeholder="Porciones" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="float-left">Ejemplos de porciones</label>
+                                        <button type="button"
+                                            class="btn btn-success mr-2 ml-2 float-left btn-circle">+</button>
+                                        <button type="button"
+                                            class="btn btn-danger mr-2 ml-2 float-left btn-circle">-</button>
+                                        <input type="txt" class="form-control " name="" id="ejemploGrasas0"
+                                            aria-describedby="helpId"
+                                            placeholder="Ejemplo: 1 cucharadita de aceite de oliva" required="">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary save">Save</button>
+                    <button type="submit" style="display: none" class="btn btn-danger delete">Delete</button>
+                </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
