@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css">
+		<title>Web</title>
+	</head>
+	<body>
+
+		<div class="header fixed-top">
+			<h1 style="padding-left: 3%;">Home</h1>
+			<nav class="nav-cus  navbar-expand-lg navbar-dark bg-dark" >
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	 				<span class="navbar-toggler-icon"></span>
+ 				</button>
+
+				<div class="collapse navbar-collapse" id="navbarNav">
+				 <ul class="navbar-nav">
+					 <li class="nav-item active">
+						 <a class="nav-link" href="#">Porciones Restando Hoy <span class="sr-only">(current)</span></a>
+					 </li>
+					 <li class="nav-item">
+						 <a class="nav-link" href="#">Planes Alimenticios</a>
+					 </li>
+					 <li class="nav-item">
+						 <a class="nav-link" href="#">Información Nutrimental</a>
+					 </li>
+					 <li class="nav-item">
+						 <a class="nav-link" href="#">¿Quíenes somos?</a>
+					 </li>
+				 </ul>
+
+				 <div class="login-nav">
+					  <button class="btn-nav btn btn-outline-success my-2 my-sm-0">Ingresar</button>
+						<button class="btn-nav btn btn-success my-2 my-sm-0">Registrarse</button>
+				 </div>
+
+			 </div>
+			</nav>
+        </div>
+
+       
+        
+
+        <div class ="cont body d-flex flex-column">
+            <h3>INFORMACIÓN NUTRIMENTAL</h3>
+            <p>En la nutrición, es muy importante saber el tipo de porciones que se manejan y la cantidad de que representa cada uno de estos alimentos.</p>
+            <p>A continuación, mostramos la tabla de intercambios de alimentos equivalentes a sus porciones, de acuerdo con su grupo alimenticio:</p>
+            <h4>TABLA DE INTERCAMBIOS DE ALIMENTOS EQUIVALENTES</h4>
+            <p></p>
+            <h5>Grupo de CARNES (origen animal)</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Alimento</th>
+                        <th scope="col">Una porción equivale a 30 gr</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="table-success" colspan="2"><b>BAJO</b> contenido de grasas:</td>
+                    </tr>   
+                    <tr>
+                        <th scope="row">Res</th>
+                        <td>filete, lengua, falda</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cordero</th>
+                        <td>lomo, pierna, costilla</td>
+                    </tr> 
+                    <tr>
+                        <td class="table-primary" colspan="2"><b>MEDIO</b> contenido de grasas:</td>
+                    </tr>   
+                    <tr>
+                        <th scope="row">Res</th>
+                        <td>molida comercial, chuleta, bola, maciza, espaldilla</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cerdo</th>
+                        <td>jamón de lomo, lomo, espaldilla</td>
+                    </tr>  
+                    <tr>
+                        <td class="table-danger" colspan="2"><b>ALTO</b> contenido de grasas:</td>
+                    </tr>   
+                    <tr>
+                        <th scope="row">Res</th>
+                        <td>costilla</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cordero</th>
+                        <td>pecho y menudo</td>
+                    </tr>                                                               
+                </tbody>
+            </table>
+            <h5>Grupo de CEREALES</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                    <th scope="col">Una porción equivale a:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Tortilla de Maíz</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bolillo Integral</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pan Tostado</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <!--
+                  <tr>
+                    <th scope="row">Pan Integral</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pan Hotdog</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pan de hamburguesas</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Hot Cake</th>
+                    <td>1 pequeño</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Avena</th>
+                    <td>1/2 tz cocida</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cuadritos de avena</th>
+                    <td>10 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cebada</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sopa de arroz</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sopa de pasta</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Espaguetti</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Galletas marías</th>
+                    <td>5 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Galletas soda</th>
+                    <td>2 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Galletas habaneras</th>
+                    <td>6 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Galletas animalitos</th>
+                    <td>6 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Galletas saladas</th>
+                    <td>6 cuadritos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Kraker Bran</th>
+                    <td>4 cuadritos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Honey Bran</th>
+                    <td>3 cuadritos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Palomitaz maiz</th>
+                    <td>2 tazas sin sal</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Harina</th>
+                    <td>2 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Maizena</th>
+                    <td>2 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Papa</th>
+                    <td>1 pza mediana</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Elote</th>
+                    <td>1/3 de tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Camote</th>
+                    <td>1/4 de tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Palitos de pan</th>
+                    <td>4 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pan molido</th>
+                    <td>3 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Barra All Bran</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Barra de multigrano</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Barra de Special K</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Barra de avena</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Barra de nutrigrain</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nature Valley Verde</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Arroz inflado natural</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">All Bran</th>
+                    <td>6 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Corn Flakes</th>
+                    <td>6 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bran Flakes</th>
+                    <td>6 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Special K</th>
+                    <td>6 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Fitness</th>
+                    <td>6 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Granola</th>
+                    <td>1/4 tz</td>
+                  </tr>                  
+                -->
+
+                </tbody>
+            </table>
+            <h5>Grupo de FRUTAS</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                    <th scope="col">Una porción equivale a:</th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr>
+                    <td class="table-danger" colspan="2"><b>ALTO</b> contenido de fibra:</td>
+                  </tr>               
+                  <tr>
+                    <th scope="row">Fresa</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Granada</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <!--
+                  <tr>
+                    <th scope="row">Guayaba</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pera</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tuna</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Zarzamora</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Frambuesa</th>
+                    <td>1 pequeño</td>
+                  </tr>
+                  <tr>
+                  -->
+                    <td colspan="2">JUGOS:</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ciruela</th>
+                    <td>1/2 tz cocida</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Manzana</th>
+                    <td>10 pzas</td>
+                  </tr>
+                  <!--
+                  <tr>
+                    <th scope="row">Naranja</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Piña</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Toronja</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Uva</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Durazno</th>
+                    <td>5 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pera</th>
+                    <td>2 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Lima</th>
+                    <td>6 pzas</td>
+                  </tr>
+                -->
+                  <tr>
+                    <td class="table-primary" colspan="2"><b>MEDIANO</b> contenido de fibra:</td>
+                  </tr>                                 
+                  <tr>
+                    <th scope="row">Ciruela</th>
+                    <td>6 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Chabacano</th>
+                    <td>6 cuadritos</td>
+                  </tr>
+                  <!--
+                  <tr>
+                    <th scope="row">Chabacano seco</th>
+                    <td>4 cuadritos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Durazno</th>
+                    <td>3 cuadritos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Higo</th>
+                    <td>2 tazas sin sal</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Lima</th>
+                    <td>2 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mandarina</th>
+                    <td>2 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mango</th>
+                    <td>1 pza mediana</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Manzana</th>
+                    <td>1/3 de tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Naranja</th>
+                    <td>1/4 de tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Piña</th>
+                    <td>4 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Papaya</th>
+                    <td>3 cdas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tamarindo</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cereza</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pitaya</th>
+                    <td>1 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Coctel</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                -->
+                  <tr>
+                    <td class="table-success" colspan="2"><b>BAJO</b> contenido de fibra:</td>
+                  </tr>               
+                  <tr>                  
+                  <tr>
+                    <th scope="row">Ciruela pasa</th>
+                    <td>4 medianas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Dátil</th>
+                    <td>2 pzas</td>
+                  </tr>
+                  <!--
+                  <tr>
+                    <th scope="row">Jícama</th>
+                    <td>3/4 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mamey</th>
+                    <td>1/3 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Puré de Manzana</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Melón</th>
+                    <td>1 tz en bolitas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nectarina</th>
+                    <td>1/2 pza gde</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pasitas</th>
+                    <td>2 cdas soperas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Plátano</th>
+                    <td>1/2 pza</td>
+                  </tr>  
+                  <tr>
+                    <th scope="row">Sandía</th>
+                    <td>1 tz en bolitas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Toronja</th>
+                    <td>1/2 pza</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Uvas</th>
+                    <td>10 pzas</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Plátano macho</th>
+                    <td>1/4 de pza</td>
+                  </tr>                                       
+                -->
+
+                </tbody>
+            </table>
+            <h5>Grupo de VERDURAS</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                  </tr>
+                </thead>  
+                <tbody>
+                    <tr>
+                        <td class="table-primary" colspan="2" >Verduras de tipo <b>A</b></td>                          
+                    </tr>
+                    <tr>
+                        <td colspan="2">Estas verduras se pueden consumir libremente</td> 
+                    </tr>
+                    <tr>
+                        <th scope="row">Cilantro</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Acelgas</th>
+                    </tr>
+                    <tr>
+                        <td class="table-warning"  colspan="2">Verduras de tipo <b>B</b></td>                          
+                    </tr>
+                    <tr>
+                        <td colspan="2">Una porción es <b>media taza</b> de:</td> 
+                    </tr>  
+                    <tr>
+                        <th scope="row">Betabel</th>
+                    </tr>               
+                    <tr>
+                        <th scope="row">Calabaza</th>
+                    </tr>   
+                </tbody>           
+            </table>
+
+            <h5>Grupo de LÁCTEOS</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                    <th scope="col">Una porción equivale a:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Leche entera</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Leche descremada</th>
+                    <td>1 tz</td>
+                  </tr>
+                </tbody>
+            </table>
+
+            <h5>Grupo de LEGUMINOSAS</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">Una porción es media taza y debe de ser cocida:</td>
+                  </tr>                    
+                  <tr>
+                    <th scope="row">Frijol</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">Haba</th>
+                  </tr>
+                </tbody>
+            </table> 
+            <h5>Grupo de GRASAS</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                    <th scope="col">Una porción equivale a:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Aceite de maíz</th>
+                    <td>1 cdita</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Aceitunas de oliva</th>
+                    <td>1 cdita</td>
+                  </tr>
+                </tbody>
+            </table>
+            <h5>Grupo de AZÚCARES</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                    <th scope="col">Una porción equivale a:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Azúcar</th>
+                    <td>1 cda</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Horchata</th>
+                    <td>1/2 tz</td>
+                  </tr>
+                </tbody>
+            </table>
+            <h5>SE PUEDEN CONSUMIR LIBREMENTE</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Alimento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Agua Mineral</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mostaza</th>
+                  </tr>
+                </tbody>
+            </table>
+           
+
+        </div>
+
+		
+
+
+		
+
+		<div class="footer fixed-bottom d-flex flex-row justify-content-between">
+			<h5>DASW</h5>
+			<h5>ITESO</h5>
+			<h5>2019</h5>
+		</div>
+
+
+	</body>
+</html>
