@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InfoNutrimentalComponent } from './info-nutrimental/info-nutrimental.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IngredientesComponent
+    InfoNutrimentalComponent
   ],
   imports: [
     BrowserModule,
