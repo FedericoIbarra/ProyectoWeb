@@ -13,13 +13,17 @@ export class PorcionesCardsComponent implements OnInit {
   public porciones = [];
 
   //Arreglo de enteros con la cantidad ingerida de cada porcion;
-  public newPor = [];
+  public newPor;
 
 
   constructor(private _porcionesService: PorcionesService) { }
 
   ngOnInit() {
+
     this.porciones = this._porcionesService.getPorciones();
+    this.newPor = [this.porciones.length];
+    this.porciones.forEach(i => this.newPor[i.id] = 0);
+
   }
 
   /*
@@ -27,7 +31,23 @@ export class PorcionesCardsComponent implements OnInit {
     Envia el nuevo arreglo al servicio para ser guardado.
   */
   addPor() {
-
+    this._porcionesService.modPor(this.newPor);
+    this.porciones.forEach(i => this.newPor[i.id] = 0);
   }
+
+  /*
+    Incrementa en 1 la cantidad de la porcion.
+  */
+  res(id) {
+    if (this.newPor[id] > 0) {
+      this.newPor[id]--;
+    }
+  }
+
+  add(id) {
+    this.newPor[id]++;
+  }
+
+  //<app-card-element	*ngFor="let porcion of porciones"[porcion] = porcion></app-card-element>
 
 }

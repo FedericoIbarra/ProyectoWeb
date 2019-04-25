@@ -1,4 +1,4 @@
-<li class="porcion d-flex flex-row justify-content-between">
+<li class="porcion d-flex flex-row justify-content-between" >
   <h5>{{porcion.nombre}}</h5>
-  <h4 class="porciones-cantidad">{{porcion.cantidad}}</h4>
+  <h4 class="porciones-cantidad" [ngStyle]="{'color':porcion.cantidad < 0 ? 'red' : 'inherit'}">{{porcion.cantidad}}</h4>
 </li>

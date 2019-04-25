@@ -33,6 +33,8 @@
 
 .card-title{
 	padding: 10%;
+	text-align: center;
+  font-size: 2.4vmin;
 }
 
 .edit-type{
@@ -142,4 +144,8 @@
 .modal-body {
 		max-height: calc(100vh - 210px);
 		overflow-y: auto;
+}
+
+.btn-guardar {
+	margin-right: 3em;
 }

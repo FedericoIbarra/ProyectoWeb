@@ -19,8 +19,15 @@ export class PorcionesService {
       id: 2,
       nombre: "Frutas",
       cantidad: 0
+    },
+    {
+      id: 3,
+      nombre: "Agua",
+      cantidad: 10
     }
   ];
+
+
   constructor() { }
 
   /*
@@ -34,6 +41,7 @@ export class PorcionesService {
     Resta la cantidad de porciones ingeridas a la lista diaria.
   */
   modPor(newPor) {
+    this.porciones.forEach(por => por.cantidad -= newPor[por.id]);
     //this.porciones = newPor;
   }
 }
