@@ -1,0 +1,19 @@
+
+
+<div class="editar-porciones d-flex flex-column w-100">
+	<h3 class="parte1">Restar por porciones</h3>
+	<div class="p-2 parte1 d-flex flex-row">
+		<div class="card edit-type" style="width: 16rem" *ngFor="let porcion of porciones">
+		  <div class="card-body">
+		    <h4 class="card-title">{{porcion.nombre}}</h4>
+		    <h4 class="text-center">{{newPor[porcion.id]}}</h4>
+		    <div class="d-flex flex-row justify-content-between">
+		      <button (click)="res(porcion.id)" class="btn-por btn btn-danger">-</button>
+		      <button (click)="add(porcion.id)" class="btn-por btn btn-success">+</button>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<button (click)="addPor()" class="btn-por btn btn-success btn-guardar  float-right">Guardar</button>
