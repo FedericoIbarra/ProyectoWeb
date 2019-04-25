@@ -1,0 +1,5 @@
+<app-card-element
+		*ngFor="let porcion of porciones"
+		[porcion] = porcion
+></app-card-element>
+<button (click)="addPor()" class="btn-por btn btn-success">Guardar</button>

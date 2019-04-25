@@ -23,7 +23,17 @@ export class PorcionesService {
   ];
   constructor() { }
 
+  /*
+    Devuelve la lsita de porciones del dia.
+  */
   getPorciones() {
     return this.porciones;
+  }
+
+  /*
+    Resta la cantidad de porciones ingeridas a la lista diaria.
+  */
+  modPor(newPor) {
+    //this.porciones = newPor;
   }
 }

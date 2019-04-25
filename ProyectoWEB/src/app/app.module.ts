@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ListaPorcionesComponent } from './home/lista-porciones/lista-porciones.component';
 import { PorcionesElementoComponent } from './home/lista-porciones/porciones-elemento/porciones-elemento.component';
+import { PorcionesCardsComponent } from './home/porciones-cards/porciones-cards.component';
+import { CardElementComponent } from './home/porciones-cards/card-element/card-element.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { PorcionesElementoComponent } from './home/lista-porciones/porciones-ele
     HeaderComponent,
     HomeComponent,
     ListaPorcionesComponent,
-    PorcionesElementoComponent
+    PorcionesElementoComponent,
+    PorcionesCardsComponent,
+    CardElementComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

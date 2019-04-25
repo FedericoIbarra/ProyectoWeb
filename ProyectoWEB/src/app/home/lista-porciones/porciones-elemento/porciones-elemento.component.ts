@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Porcion } from './Porcion';
+import { Porcion } from '../../../data-models/Porcion';
 
 @Component({
   selector: 'app-porciones-elemento',

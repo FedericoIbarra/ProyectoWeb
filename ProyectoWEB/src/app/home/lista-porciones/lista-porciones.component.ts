@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PorcionesService } from './porciones.service';
+import { PorcionesService } from '../porciones.service';
 
 @Component({
   selector: 'app-lista-porciones',
