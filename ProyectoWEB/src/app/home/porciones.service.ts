@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PorcionesService {
-  porciones = [
+  porcionesDiarias = [
     {
       id: 0,
       nombre: "Leguminosas",
@@ -31,17 +31,17 @@ export class PorcionesService {
   constructor() { }
 
   /*
-    Devuelve la lsita de porciones del dia.
+    Devuelve la lsita de porcionesDiarias del dia.
   */
   getPorciones() {
-    return this.porciones;
+    return this.porcionesDiarias;
   }
 
   /*
-    Resta la cantidad de porciones ingeridas a la lista diaria.
+    Resta la cantidad de porcionesDiarias ingeridas a la lista diaria.
   */
-  modPor(newPor) {
-    this.porciones.forEach(por => por.cantidad -= newPor[por.id]);
-    //this.porciones = newPor;
+  modPor(newPor: number[]) {
+    this.porcionesDiarias.forEach(por => por.cantidad -= newPor[por.id]);
+    //this.porcionesDiarias = newPor;
   }
 }

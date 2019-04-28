@@ -38,13 +38,13 @@ export class PorcionesCardsComponent implements OnInit {
   /*
     Incrementa en 1 la cantidad de la porcion.
   */
-  res(id) {
+  res(id: number) {
     if (this.newPor[id] > 0) {
       this.newPor[id]--;
     }
   }
 
-  add(id) {
+  add(id: number) {
     this.newPor[id]++;
   }
 

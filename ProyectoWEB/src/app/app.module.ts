@@ -9,6 +9,7 @@ import { ListaPorcionesComponent } from './home/lista-porciones/lista-porciones.
 import { PorcionesElementoComponent } from './home/lista-porciones/porciones-elemento/porciones-elemento.component';
 import { PorcionesCardsComponent } from './home/porciones-cards/porciones-cards.component';
 import { FooterComponent } from './footer/footer.component';
+import { ComidasCardsComponent } from './home/comidas-cards/comidas-cards.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     ListaPorcionesComponent,
     PorcionesElementoComponent,
     PorcionesCardsComponent,
-    FooterComponent
+    FooterComponent,
+    ComidasCardsComponent
   ],
   imports: [
     BrowserModule,
