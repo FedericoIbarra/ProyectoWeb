@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LoginService } from '../login.service';
 
@@ -7,6 +7,9 @@ import { LoginService } from '../login.service';
   templateUrl: './service-template.html'
 })
 export class DemoModalServiceStaticComponent {
+
+  @Output() sendLog = new EventEmitter();
+
   modalRef: BsModalRef;
 
 	usr = '';
@@ -20,6 +23,15 @@ export class DemoModalServiceStaticComponent {
 
 	sendData() {
 		console.log(this.usr + " " + this.pas);
-		console.log(this._login.validate(this.usr, this.pas));
+		//console.log(this._login.validate(this.usr, this.pas));
+
+    if (this._login.validate(this.usr, this.pas)) {
+      this.sendLog.emit(null);
+      this.modalRef.hide()
+    } else {
+      //Aqui no entra
+    }
+
 	}
+
 }

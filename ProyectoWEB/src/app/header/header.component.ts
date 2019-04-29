@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
+
 
 @Component({
   selector: 'app-header',
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isLogged = false;
+  usr: string;
+  pas: string;
 
-  constructor() {}
+  constructor(private _login: LoginService) {}
 
   ngOnInit() {
+  }
 
+  public setSession ($event) {
+    this.usr = this._login.getUser();
+    this.pas = this._login.getPassword();
+    this.isLogged = true;
   }
 
 

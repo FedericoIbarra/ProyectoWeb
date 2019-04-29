@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
-  user = 'User';
-  password = 'Password';
+  private user = 'User';
+  private password = 'Password';
 
   constructor() { }
 
@@ -16,5 +16,13 @@ export class LoginService {
     } else {
       return false;
     }
+  }
+
+  getUser() {
+    return this.user;
+  }
+
+  getPassword() {
+    return this.password;
   }
 }
