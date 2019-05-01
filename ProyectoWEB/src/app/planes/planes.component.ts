@@ -1,8 +1,9 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Plan } from '../data-models/plan';
-import { PlanesService } from './planes.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Porcion } from '../data-models/Porcion';
+import { LoginService } from '../login.service';
+import { User } from '../data-models/User';
 
 @Component({
   selector: 'app-planes',
@@ -12,12 +13,21 @@ import { Porcion } from '../data-models/Porcion';
 export class PlanesComponent implements OnInit {
   modalRefEdit: BsModalRef;
   planmodal: Plan;
+  usuario: User;
+  isLogged: boolean;
   @ViewChild('modalEdit') modalTemplateEdit: TemplateRef<any>;
-  constructor(private planesService: PlanesService /** Este debe ser el de planes personales */ ,
+  constructor(private usuarioService: LoginService /** Este debe ser el de planes personales */ ,
               private modalService: BsModalService) { }
 
   ngOnInit() {
     this.resetPlanModal();
+    this.usuario = this.usuarioService.getUser();
+    if (this.usuario) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
   }
   openCreator() {
 
@@ -25,11 +35,11 @@ export class PlanesComponent implements OnInit {
   }
 
   submit() {
-    if(!this.planmodal) {
+    if (!this.planmodal) {
         window.alert('No existe');
     } else {
     window.alert(this.planmodal.nombre);
-    this.planesService.addPlan(this.planmodal);
+    this.usuarioService.addPlan(this.usuario.id, this.planmodal);
   }
   }
   resetPlanModal(){
