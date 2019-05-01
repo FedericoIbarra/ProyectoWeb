@@ -7,7 +7,7 @@ export class PorcionesService {
   porciones = [
     {
       id: 0,
-      nombre: "Leguminosas",
+      nombre: 'Leguminosas',
       cantidad: 2
     },
     {

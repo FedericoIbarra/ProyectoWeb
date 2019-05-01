@@ -1,5 +1,6 @@
 export class Porcion {
-	public id: number;
-	public nombre: string;
-	public cantidad: number;
+	constructor(
+	   	public id: number,
+		public nombre: string,
+		public cantidad: number) { }
 }

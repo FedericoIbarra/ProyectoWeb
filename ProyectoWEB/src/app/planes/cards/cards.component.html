@@ -1,0 +1,191 @@
+<div class="card mb-3 ml-1 mr-1 border-info float-left "
+  style="max-width: 20rem; max-height: 20rem; min-width: 20rem; min-height: 20rem " *ngFor="let item of plan">
+  <div class=card-header>
+    <h3>{{item.nombre}}</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{item.descripcion}}
+    </p>
+
+  </div>
+  <!--*ngIf="!item.esPersonal"-->
+  <div>
+    <button (click)="infoSugerido(item.id)" type="button" *ngIf="item.esPersonal"
+      class="btn btn-outline-info float-left" style="width: 100%">Info</button>
+    <button (click)="infoSugerido(item.id)" type="button" class="btn btn-outline-info float-left"
+      style="width: 75%">Info</button>
+    <button (click)="edit(item.id)" type="button" class="btn btn-outline-warning float-left"
+      style="width: 25%">Edit</button>
+  </div>
+</div>
+
+
+
+<!--Cuadro para saber información----------------------------------------------------------->
+<ng-template #modalInfo>
+
+  <div id="infoId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" data-action="new">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{planmodal.nombre}}</h5>
+          <button type="button" (click)="modalRefInfo.hide()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <h5>Esta es la descripcion del plan </h5>
+            <p>{{planmodal.descripcion}}</p>
+
+            <div id="cereales">
+              <h5>Cereales</h5>
+              <h6 id="cerealesP">Porciones: {{planmodal.porciones[1].cantidad}}</h6>
+
+            </div>
+            <div id="vegetales">
+              <h5>Vegetales</h5>
+              <h6 id="vegetalesP">Porciones: {{planmodal.porciones[0].cantidad}}</h6>
+
+
+            </div>
+            <div id="frutas">
+              <h5>Frutas</h5>
+              <h6 id="frutasP">Porciones: {{planmodal.porciones[5].cantidad}}</h6>
+
+
+            </div>
+            <div id="lacteos">
+              <h5>Lácteos</h5>
+              <h6 id="lacteosP">Porciones: {{planmodal.porciones[3].cantidad}}</h6>
+
+            </div>
+            <div id="carnes">
+              <h5>Carnes</h5>
+              <h6 id="carnesP">Porciones: {{planmodal.porciones[7].cantidad}}</h6>
+
+              <div id="grasas">
+                <h5>Grasas y Aceites</h5>
+                <h6 id="frutasP">Porciones: {{planmodal.porciones[4].cantidad}}</h6>
+
+              </div>
+              <div id="azucares">
+                <h5>Azúcares</h5>
+                <h6 id="frutasP">Porciones: {{planmodal.porciones[6].cantidad}}</h6>
+
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+              <button type="button" (click)="modalRefInfo.hide()" class="btn btn-secondary"
+                data-dismiss="modal">Ok</button>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<!--Cuadro para editar información----------------------------------------------------------->
+<ng-template #modalEdit>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Plan</h5>
+        <button type="button" (click)="modalRefEdit.hide()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form #f="ngForm" (ngSubmit)="submit()">
+            <div class="form-group">
+              <label for="">Nombre del Plan</label>
+              <input type="text" [(ngModel)]="planmodal.nombre" class="form-control nombre" name="nombreform"
+                id="nombreid" aria-describedby="helpId" placeholder="Nombre del plan" required="" value={{planmodal.nombre}}>
+            </div>
+            <div class="form-group">
+              <label for="">Descripción</label>
+              <textarea class="form-control" [(ngModel)]="planmodal.descripcion"  name="Text1" cols="40" rows="4"
+                maxlength="250"  id="" placeholder="Descripción del plan (max 250 caracteres)" required="" value={{planmodal.descripcion}}></textarea>
+            </div>
+            <h5>Cereales</h5>
+            <div class="form-group">
+              <label for="">Número de porciones</label>
+              <input type="number" class="form-control " [(ngModel)]="planmodal.porciones[1].cantidad" min=0
+                name="cerealform" id="" aria-describedby="helpId" placeholder="Porciones" required=""
+                value={{planmodal.porciones[1].cantidad}}>
+            </div>
+            <h5>Vegetales</h5>
+            <div class="form-group">
+              <label for="">Número de porciones</label>
+              <input type="number" class="form-control " [(ngModel)]="planmodal.porciones[0].cantidad" min=0
+                name="vegetalform" id="" aria-describedby="helpId" placeholder="Porciones"
+                value={{planmodal.porciones[0].cantidad}} required="">
+            </div>
+            <h5>Frutas</h5>
+            <div class="form-group">
+              <label for="">Número de porciones</label>
+              <input type="number" class="form-control " [(ngModel)]="planmodal.porciones[5].cantidad" min=0
+                name="frutasform" id="" aria-describedby="helpId" placeholder="Porciones"
+                value={{planmodal.porciones[5].cantidad}} required="">
+            </div>
+            <h5>Lácteos</h5>
+            <div class="form-group">
+              <label for="">Número de porciones</label>
+              <input type="number" class="form-control " min=0 name="lacteosform"
+                [(ngModel)]="planmodal.porciones[3].cantidad" id="" aria-describedby="helpId" placeholder="Porciones"
+                value={{planmodal.porciones[3].cantidad}} required="">
+            </div>
+
+            <h5>Carnes</h5>
+            <div class="form-group">
+              <label for="">Número de porciones</label>
+              <input type="number" class="form-control " min=0 name="carnesform"
+                [(ngModel)]="planmodal.porciones[7].cantidad" id="" aria-describedby="helpId" placeholder="Porciones"
+                value={{planmodal.porciones[7].cantidad}} required="">
+            </div>
+
+            <h5>Grasas y Aceites</h5>
+            <div class="form-group">
+              <label for="">Número de porciones</label>
+              <input type="number" class="form-control " min=0 name="grasasform" id=""
+                [(ngModel)]="planmodal.porciones[4].cantidad" aria-describedby="helpId" placeholder="Porciones"
+                value={{planmodal.porciones[4].cantidad}} required="">
+            </div>
+
+            <h5>Azúcares</h5>
+            <div class="form-group">
+              <label for="">Número de porciones</label>
+              <input type="number" class="form-control " min=0 name="azucaresform" id="" aria-describedby="helpId"
+                [(ngModel)]="planmodal.porciones[6].cantidad" placeholder="Porciones"
+                value={{planmodal.porciones[6].cantidad}} required="">
+            </div>
+
+
+            <div class="modal-footer">
+              <button type="button" (click)="modalRefEdit.hide()" class="btn btn-secondary"
+                data-dismiss="modal">Close</button>
+              <button type="submit" (click)="modalRefEdit.hide()" class="btn btn-primary save">Save</button>
+              <button type="button" (click)="delete()" (click)="modalRefEdit.hide()"  class="btn btn-danger delete">Delete</button>
+            </div>
+
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</ng-template>
