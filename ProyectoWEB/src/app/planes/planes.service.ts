@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class PlanesService {
   cambiaPlanSugerido = new Subject<Plan[]>();
-  cambiaPlanPersonal = new Subject<Plan[]>();
+  
   private lastIDS = 0;
   // private lastIDP = 0;
 
@@ -54,7 +54,7 @@ export class PlanesService {
   /*getPlanesPersonales(): Plan[] {
     return this.planesPersonales.slice();
   }*/
-
+ 
   /* notificarCambioPersonal() {
      this.cambiaPlanPersonal.next(this.planesPersonales.slice());
  

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { PlanesService } from '../planes.service';
 import { Plan } from 'src/app/data-models/plan';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { LoginService } from 'src/app/login.service';
+import { User } from 'src/app/data-models/User';
 
 
 @Component({
@@ -11,18 +13,26 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class CardsComponent implements OnInit {
   planmodal: Plan;
+  usuario: User;
+  admin: boolean;
   public plan: Plan[] = [];
   modalRefInfo: BsModalRef;
   modalRefEdit: BsModalRef;
   @ViewChild('modalInfo') modalTemplateInfo: TemplateRef<any>;
   @ViewChild('modalEdit') modalTemplateEdit: TemplateRef<any>;
   constructor(private planesService: PlanesService,
-              private modalService: BsModalService) { }
+              private modalService: BsModalService,
+              private usuarioService: LoginService ) { }
 
 
 
   ngOnInit() {
-
+    this.usuario = this.usuarioService.getUser();
+    if(this.usuario){
+      this.admin = this.usuario.isAdmin;
+    } else {
+      this.admin = false;
+    }
     this.plan = this.planesService.getPlanesSugeridos();
 
   }

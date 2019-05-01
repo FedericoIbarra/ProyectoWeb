@@ -13,9 +13,9 @@
 
 
       </div>
-      <h2>Haz tu propio plan</h2>
-      <div class="d-flex p-2 flex-row flex-wrap ">
-        <button type="button" (click)="openCreator()" class="btn  btn-success btn-circle btn-xl float-left">+<i class="fa fa-times"></i>
+      <h2 *ngIf="isLogged == true">Haz tu propio plan</h2>
+      <div *ngIf="isLogged == true" class="d-flex p-2 flex-row flex-wrap ">
+        <button  type="button" (click)="openCreator()" class="btn  btn-success btn-circle btn-xl float-left">+<i class="fa fa-times"></i>
         </button>
         <app-cards-personales></app-cards-personales>
       </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
+import { User } from '../data-models/User';
 
 
 @Component({
@@ -10,16 +11,19 @@ import { LoginService } from '../login.service';
 export class HeaderComponent implements OnInit {
 
   isLogged = false;
-  usr: string;
+  usr: User;
 
   constructor(private _login: LoginService) {}
 
   ngOnInit() {
   }
 
-  public setSession ($event) {
+  public setSession($event) {
     this.usr = this._login.getUser();
+    if (this.usr) {
     this.isLogged = true;
+    }
+
   }
 
 
