@@ -1,0 +1,10 @@
+<div class="porciones-container w-100">
+    <h3>Porciones</h3>
+
+      <ul>
+        <app-porciones-elemento
+          *ngFor="let porcion of porciones"
+          [porcion] = porcion
+        ></app-porciones-elemento>
+      </ul>
+</div>

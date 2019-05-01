@@ -1,1 +1,151 @@
 /* You can add global styles to this file, and also import other style files */
+.header{
+	width: 100%;
+	background-color: inherit;
+}
+
+.porciones-container{
+	padding-top: 2%;
+	padding-left: 2%;
+}
+
+.porciones-cantidad{
+	position: relative;
+	margin-right: 25%;
+}
+
+.porcion{
+	padding-top: 7%;
+}
+
+.parte1{
+	padding-top: 3%;
+	padding-left: 2%;
+	width: 100%;
+	margin: 0px;
+}
+
+.parte2{
+	padding: 2%;
+	width: 100%;
+	margin: 0px;
+}
+
+.card-title{
+	padding: 10%;
+	text-align: center;
+  font-size: 2.4vmin;
+}
+
+.edit-type{
+	margin: 4%;
+	width: 15rem;
+}
+
+.cont{
+  padding-top: 9%;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-bottom: 7%;
+}
+
+.footer{
+	background-color: lightgray;
+	padding: 1%
+}
+
+.login-nav{
+	display: block;
+	position: relative;
+	left: 25%;
+}
+
+.btn-nav{
+	margin-left: 0%;
+}
+
+.nav-cus{
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.login-pop{
+	max-width: 25rem;
+}
+
+.btn-circle.btn-xl {
+		width: 70px;
+		height: 70px;
+		padding: 10px 16px;
+		border-radius: 35px;
+		font-size: 24px;
+		line-height: 1.33;
+}
+
+.btn-circle {
+		width: 30px;
+		height: 30px;
+		padding: 6px 0px;
+		border-radius: 15px;
+		text-align: center;
+		font-size: 12px;
+		line-height: 1.42857;
+}
+
+.btn-circle {
+		width: 30px;
+		height: 30px;
+		padding: 6px 0px;
+		border-radius: 15px;
+		text-align: center;
+		font-size: 12px;
+		line-height: 1.42857;
+}
+
+.modal-body {
+		max-height: calc(100vh - 210px);
+		overflow-y: auto;
+}
+
+.btn-circle.btn-xl {
+		width: 70px;
+		height: 70px;
+		padding: 10px 16px;
+		border-radius: 35px;
+		font-size: 24px;
+		line-height: 1.33;
+}
+
+.btn-circle {
+		width: 30px;
+		height: 30px;
+		padding: 6px 0px;
+		border-radius: 15px;
+		text-align: center;
+		font-size: 12px;
+		line-height: 1.42857;
+}
+
+.btn-circle {
+		width: 30px;
+		height: 30px;
+		padding: 6px 0px;
+		border-radius: 15px;
+		text-align: center;
+		font-size: 12px;
+		line-height: 1.42857;
+}
+
+.modal-body {
+		max-height: calc(100vh - 210px);
+		overflow-y: auto;
+}
+
+.modal-body {
+		max-height: calc(100vh - 210px);
+		overflow-y: auto;
+}
+
+.btn-guardar {
+	margin-right: 3em;
+}
