@@ -1,14 +1,16 @@
 <div class="card mb-3 ml-1 mr-1 border-info float-left "
-  style="max-width: 20rem; max-height: 20rem; min-width: 20rem; min-height: 20rem " *ngFor="let item of plan">
-  <div class=card-header>
-    <h3>{{item.nombre}}</h3>
+  style="max-width: 20rem; max-height: 20rem; min-width: 20rem; min-height: 21rem " *ngFor="let item of plan">
+  <div  class="card-header">
+    <h3 >{{item.nombre}}</h3>
+    <button *ngIf="usuario" type="button" (click)="seguirPlan(item.id)" class="close" data-dismiss="modal" aria-label="Close">
+     Seguir Plan
+    </button>
   </div>
   <div class="card-body">
     <p class="card-text">{{item.descripcion}}
     </p>
 
   </div> 
-  <!--*ngIf="!item.esPersonal"-->
   <div>
     <button (click)="infoSugerido(item.id)" type="button" *ngIf="!admin"
       class="btn btn-outline-info float-left" style="width: 100%">Info</button>
@@ -18,6 +20,30 @@
       style="width: 25%">Edit</button>
   </div>
 </div>
+<!--Cuadro para seguir otro plan-->
+<ng-template #modalWarning>
+  <div class= "modal-dialog" role="document">
+    <div class= "modal-content">
+      <div class = modal-header>
+        <h2>¿Estás seguro que quieres seguir el plan {{planmodal.nombre}}?</h2>
+      </div>
+      <div class="modal-body">
+        <h4  *ngIf="usuario.planElegido.nombre!=''">Solo puedes seguir un plan a la vez</h4>
+        <h4 *ngIf="usuario.planElegido.nombre ==''">Actualmente no estás siguiendo ningun plan</h4>
+        <div *ngIf="usuario.planElegido.nombre!=''">
+          <h4>Tu plan actual es {{usuario.planElegido.nombre}}</h4>
+          <p> {{usuario.planElegido.descripcion}}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" (click)="aceptarPlan()" (click)="modalRefWarning.hide()"  class="btn btn-primary save">Sí</button>
+          <button type="button" (click)="modalRefWarning.hide()"  class="btn btn-danger delete">Cancelar</button>
+        </div>
+    </div>
+
+  </div>
+   
+</ng-template>
 
 
 

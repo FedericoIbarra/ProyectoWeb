@@ -14,8 +14,10 @@ export class CardsPersonalesComponent implements OnInit {
   public plan: Plan[] = [];
   modalRefInfo: BsModalRef;
   modalRefEdit: BsModalRef;
+  modalRefWarning: BsModalRef;
   @ViewChild('modalInfo') modalTemplateInfo: TemplateRef<any>;
   @ViewChild('modalEdit') modalTemplateEdit: TemplateRef<any>;
+  @ViewChild('modalWarning') modalTemplateWarning: TemplateRef<any>;
   constructor(private usuarioService: LoginService , /***** TIENEN QUE SER DEL SERVICE DE PERSONALES */
               private modalService: BsModalService) { }
 
@@ -61,6 +63,14 @@ export class CardsPersonalesComponent implements OnInit {
     this.reload();
   }
 
+  seguirPlan(id: number) {
+    this.planmodal = this.usuarioService.getPlan(this.usuario.id, id);
+    this.modalRefWarning = this.modalService.show(this.modalTemplateWarning);
+  }
+
+  aceptarPlan() {
+    this.usuarioService.elegirComoPlan(this.usuario.id, this.planmodal);
+  }
 
 
 }
