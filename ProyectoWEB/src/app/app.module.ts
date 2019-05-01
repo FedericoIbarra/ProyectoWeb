@@ -18,6 +18,7 @@ import { PlanesComponent } from './planes/planes.component';
 import { CardsComponent } from './planes/cards/cards.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CardsPersonalesComponent } from './planes/cards-personales/cards-personales.component';
+import { RegistrarModal } from './header/registrar-modal.component';
 
 
 @NgModule({
@@ -30,11 +31,12 @@ import { CardsPersonalesComponent } from './planes/cards-personales/cards-person
     PorcionesCardsComponent,
     FooterComponent,
     ComidasCardsComponent,
-    DemoModalServiceStaticComponent
+    DemoModalServiceStaticComponent,
     PlanesComponent,
     CardsComponent,
     AboutUsComponent,
-    CardsPersonalesComponent
+    CardsPersonalesComponent,
+    RegistrarModal
   ],
   imports: [
     ModalModule.forRoot(),
@@ -44,7 +46,6 @@ import { CardsPersonalesComponent } from './planes/cards-personales/cards-person
   ],
   providers: [
     LoginService,
-    ModalModule.forRoot(),
     FormsModule
   ],
   bootstrap: [AppComponent]

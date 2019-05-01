@@ -23,7 +23,8 @@
 
      <div *ngIf="!isLogged" class="login-nav">
         <demo-modal-service-static (sendLog)="setSession($event)">Ingesar</demo-modal-service-static>
-        <button class="btn-nav btn btn-success my-2 my-sm-0">Registrarse</button>
+        <registrar-modal></registrar-modal>
+        
      </div>
 
      <div *ngIf="isLogged" class="login-nav">
