@@ -14,7 +14,7 @@ export class PorcionesCardsComponent implements OnInit {
 
   //Arreglo de enteros con la cantidad ingerida de cada porcion;
   public newPor;
-
+ 
 
   constructor(private _porcionesService: PorcionesService) { }
 

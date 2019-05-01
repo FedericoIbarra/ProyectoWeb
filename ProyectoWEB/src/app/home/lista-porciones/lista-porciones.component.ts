@@ -10,6 +10,7 @@ export class ListaPorcionesComponent implements OnInit {
 
   public porciones = [];
 
+
   constructor(private _porcionesService: PorcionesService) { }
 
   ngOnInit() {
