@@ -18,8 +18,10 @@ export class CardsComponent implements OnInit {
   public plan: Plan[] = [];
   modalRefInfo: BsModalRef;
   modalRefEdit: BsModalRef;
+  modalRefWarning: BsModalRef;
   @ViewChild('modalInfo') modalTemplateInfo: TemplateRef<any>;
   @ViewChild('modalEdit') modalTemplateEdit: TemplateRef<any>;
+  @ViewChild('modalWarning') modalTemplateWarning: TemplateRef<any>;
   constructor(private planesService: PlanesService,
               private modalService: BsModalService,
               private usuarioService: LoginService ) { }
@@ -28,7 +30,7 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = this.usuarioService.getUser();
-    if(this.usuario){
+    if (this.usuario) {
       this.admin = this.usuario.isAdmin;
     } else {
       this.admin = false;
@@ -54,10 +56,19 @@ export class CardsComponent implements OnInit {
     this.planesService.editPlan(this.planmodal);
 
   }
-  // SI BORRA PERO NO SE ELIMINA DE LA PÁGINA
+ 
   delete() {
     // window.alert('Cambios se han guardado con éxito');
     this.planesService.delete(this.planmodal);
+  }
+
+  seguirPlan(id: number) {
+    this.planmodal = this.planesService.getPlan(id);
+    this.modalRefWarning = this.modalService.show(this.modalTemplateWarning);
+  }
+
+  aceptarPlan() {
+    this.usuarioService.elegirComoPlan(this.usuario.id, this.planmodal);
   }
 
 
