@@ -13,7 +13,8 @@ export class RegistrarModal {
 
   modalRef: BsModalRef;
 
-	user: User = new User();
+	user: User = new User(0, '', '', 0, false, '', '', 0, 
+  [], 1);
 
   constructor(private modalService: BsModalService, private _login: LoginService) {}
 

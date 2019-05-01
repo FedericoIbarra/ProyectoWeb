@@ -7,14 +7,14 @@
     <p class="card-text">{{item.descripcion}}
     </p>
 
-  </div>
+  </div> 
   <!--*ngIf="!item.esPersonal"-->
   <div>
-    <button (click)="infoSugerido(item.id)" type="button" *ngIf="item.esPersonal"
+    <button (click)="infoSugerido(item.id)" type="button" *ngIf="!admin"
       class="btn btn-outline-info float-left" style="width: 100%">Info</button>
-    <button (click)="infoSugerido(item.id)" type="button" class="btn btn-outline-info float-left"
+    <button (click)="infoSugerido(item.id)"*ngIf="admin" type="button" class="btn btn-outline-info float-left"
       style="width: 75%">Info</button>
-    <button (click)="edit(item.id)" type="button" class="btn btn-outline-warning float-left"
+    <button (click)="edit(item.id)"*ngIf="admin" type="button" class="btn btn-outline-warning float-left"
       style="width: 25%">Edit</button>
   </div>
 </div>
