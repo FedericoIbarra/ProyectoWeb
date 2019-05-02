@@ -27,7 +27,7 @@ export class DemoModalServiceStaticComponent {
 
     if (this._login.validate(this.usr, this.pas)) {
       this.sendLog.emit(null);
-      this.modalRef.hide();
+      this.modalRef.hide()
     } else {
       //Aqui no entra
       window.alert('El usuario no existe o las credenciales son incorrectas');

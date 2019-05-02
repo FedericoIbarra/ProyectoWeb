@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PorcionesService } from './porciones.service';
-import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +7,9 @@ import { LoginService } from '../login.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _porcionesService: PorcionesService, private _login: LoginService) { }
+  constructor() { }
 
   ngOnInit() {
-    let user = this._login.getUser();
-    this._porcionesService.setPorciones(user.planElegido.porciones);
-
   }
 
 }

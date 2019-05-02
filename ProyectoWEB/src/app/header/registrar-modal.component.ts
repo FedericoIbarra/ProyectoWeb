@@ -1,7 +1,7 @@
 import { Component, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LoginService } from '../login.service';
-import { User } from '../data-models/user';
+import { User } from '../data-models/User';
 import { Plan } from '../data-models/plan';
 import { Porcion } from '../data-models/Porcion';
 
@@ -15,7 +15,7 @@ export class RegistrarModal {
 
   modalRef: BsModalRef;
 
-	user: User = new User(0, '', '', 0, false, '', '', 0,
+	user: User = new User(0, '', '', 0, false, '', '', 0, 
   [], 1, new Plan(1, false,  '',
   '',
   [new Porcion(0, 'Verdura', 0), new Porcion(1, 'Cereales', 0), new Porcion(2, 'Leguminosas', 0),

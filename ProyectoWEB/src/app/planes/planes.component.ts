@@ -1,9 +1,10 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, Output } from '@angular/core';
 import { Plan } from '../data-models/plan';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Porcion } from '../data-models/Porcion';
 import { LoginService } from '../login.service';
-import { User } from '../data-models/user';
+import { User } from '../data-models/User';
+
 
 @Component({
   selector: 'app-planes',
@@ -12,7 +13,9 @@ import { User } from '../data-models/user';
 })
 export class PlanesComponent implements OnInit {
   modalRefEdit: BsModalRef;
+  //@Output() notificar = new EventEmitter();
   planmodal: Plan;
+  num: number;
   usuario: User;
   isLogged: boolean;
   @ViewChild('modalEdit') modalTemplateEdit: TemplateRef<any>;
@@ -27,6 +30,7 @@ export class PlanesComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    this.num = 1;
 
   }
   openCreator() {
@@ -40,6 +44,7 @@ export class PlanesComponent implements OnInit {
     } else {
     window.alert(this.planmodal.nombre);
     this.usuarioService.addPlan(this.usuario.id, this.planmodal);
+    this.num++;
   }
   }
   resetPlanModal(){
