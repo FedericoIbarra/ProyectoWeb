@@ -1,16 +1,18 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, Input, OnChanges } from '@angular/core';
 import { Plan } from 'src/app/data-models/plan';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/login.service';
-import { User } from 'src/app/data-models/user';
+import { User } from 'src/app/data-models/User';
+
 @Component({
   selector: 'app-cards-personales',
   templateUrl: './cards-personales.component.html',
   styleUrls: ['./cards-personales.component.css']
 })
-export class CardsPersonalesComponent implements OnInit {
+export class CardsPersonalesComponent implements OnInit, OnChanges {
   planmodal: Plan;
   usuario: User;
+  @Input() changes: number;
   public plan: Plan[] = [];
   modalRefInfo: BsModalRef;
   modalRefEdit: BsModalRef;
@@ -28,8 +30,14 @@ export class CardsPersonalesComponent implements OnInit {
     if (this.usuario) {
        this.plan = this.usuarioService.getPlanesSugeridos(this.usuario.id);
       }
+    this.changes = 0;
 
   }
+
+  ngOnChanges() {
+   this.reload();
+  }
+
 
   reload(){
     this.usuario = this.usuarioService.getUser();
@@ -72,5 +80,8 @@ export class CardsPersonalesComponent implements OnInit {
     this.usuarioService.elegirComoPlan(this.usuario.id, this.planmodal);
   }
 
+  actualizarVista(){
+    this.plan = this.usuarioService.getPlanesSugeridos(this.usuario.id);
+  }
 
 }

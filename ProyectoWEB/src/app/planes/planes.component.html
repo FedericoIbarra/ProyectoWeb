@@ -17,7 +17,7 @@
       <div *ngIf="isLogged == true" class="d-flex p-2 flex-row flex-wrap ">
         <button  type="button" (click)="openCreator()" class="btn  btn-success btn-circle btn-xl float-left">+<i class="fa fa-times"></i>
         </button>
-        <app-cards-personales></app-cards-personales>
+        <app-cards-personales [changes]="num"></app-cards-personales>
       </div>
 
     </div>

@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
-import { User } from '../data-models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PorcionesService {
-
-  user: User;
-
   porcionesDiarias = [
     {
       id: 0,
@@ -33,10 +29,6 @@ export class PorcionesService {
 
 
   constructor() { }
-
-  setPorciones(newPor){
-    this.porcionesDiarias = newPor;
-  }
 
   /*
     Devuelve la lsita de porcionesDiarias del dia.

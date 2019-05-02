@@ -1,6 +1,7 @@
 import { Component, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LoginService } from '../login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'demo-modal-service-static',
@@ -15,7 +16,8 @@ export class DemoModalServiceStaticComponent {
   usr: string;
   pas: string;
 
-  constructor(private modalService: BsModalService, private _login: LoginService) { }
+  constructor(private modalService: BsModalService, private _login: LoginService,
+              private router: Router) { }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -28,6 +30,7 @@ export class DemoModalServiceStaticComponent {
     if (this._login.validate(this.usr, this.pas)) {
       this.sendLog.emit(null);
       this.modalRef.hide();
+      this.router.navigate(['/about']);
     } else {
       //Aqui no entra
       window.alert('El usuario no existe o las credenciales son incorrectas');
