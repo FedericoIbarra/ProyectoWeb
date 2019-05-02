@@ -12,6 +12,6 @@ export class User {
         public pesoEnKG: number,
         public planesPersonales: Plan[],
         public lastIDP: number,
-        public planElegido: Plan){ 
+        public planElegido: Plan){
         }
 }
