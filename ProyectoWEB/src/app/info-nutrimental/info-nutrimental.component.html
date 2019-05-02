@@ -1,0 +1,188 @@
+<div class ="cont body d-flex flex-column">
+  <h3 style="padding-top: 2%;">INFORMACIÓN NUTRIMENTAL</h3>
+  <p>En la nutrición, es muy importante saber el tipo de porciones que se manejan y la cantidad de que representa cada uno de estos alimentos.</p>
+  <p>A continuación, mostramos la tabla de intercambios de alimentos equivalentes a sus porciones, de acuerdo con su grupo alimenticio:</p>
+  <h4>TABLA DE INTERCAMBIOS DE ALIMENTOS EQUIVALENTES</h4>
+  <p></p>
+  <h5>Grupo de CARNES (origen animal)</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col">Una porción equivale a 30 gr</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td class="table-success" colspan="2"><b>BAJO</b> contenido de grasas:</td>
+          </tr>
+          <tr *ngFor="let ingrediente of carneBajoContenidoGrasas">
+            <td>{{ingrediente.nombre}}</td>
+          </tr>
+          <tr>
+              <td class="table-primary" colspan="2"><b>MEDIO</b> contenido de grasas:</td>
+          </tr>
+          <tr *ngFor="let ingrediente of carneMedioContenidoGrasas">
+            <td>{{ingrediente.nombre}}</td>
+          </tr>
+          <tr>
+              <td class="table-danger" colspan="2"><b>ALTO</b> contenido de grasas:</td>
+          </tr>
+          <tr *ngFor="let ingrediente of carneAltoContenidoGrasas">
+            <td>{{ingrediente.nombre}}</td>
+          </tr>
+      </tbody>
+  </table>
+  <h5>Grupo de CEREALES</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Alimento</th>
+          <th scope="col">Una porción equivale a:</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let ingrediente of cereales">
+            <td>{{ingrediente.nombre}}</td>
+            <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+          </tr>
+      </tbody>
+  </table>
+  <h5>Grupo de FRUTAS</h5>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Alimento</th>
+        <th scope="col">Una porción equivale a:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="table-danger" colspan="2"><b>ALTO</b> contenido de fibra:</td>
+      </tr>
+      <tr *ngFor="let ingrediente of frutasAltoContenidoFibra">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+      </tr>
+      <td colspan="2"><b>JUGOS:</b></td>                  
+      <tr *ngFor="let ingrediente of jugos">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+      </tr>
+      <tr>
+        <td class="table-primary" colspan="2"><b>MEDIANO</b> contenido de fibra:</td>
+      </tr>
+      <tr *ngFor="let ingrediente of frutasMedioContenidoFibra">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+      </tr>
+      <tr>
+        <td class="table-success" colspan="2"><b>BAJO</b> contenido de fibra:</td>
+      </tr>
+      <tr *ngFor="let ingrediente of frutasBajoContenidoFibra">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5>Grupo de VERDURAS</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Alimento</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td class="table-primary" colspan="2" >Verduras de tipo <b>A</b></td>
+          </tr>
+          <tr>
+              <td colspan="2">Estas verduras se pueden consumir libremente</td>
+          </tr>
+          <tr *ngFor="let ingrediente of verdurasGrupoA">
+            <td>{{ingrediente.nombre}}</td>
+          </tr>
+          <tr>
+              <td class="table-warning"  colspan="2">Verduras de tipo <b>B</b></td>
+          </tr>
+          <tr>
+              <td colspan="2">Una porción es <b>media taza</b> de:</td>
+          </tr>
+          <tr *ngFor="let ingrediente of verdurasGrupoB">
+            <td>{{ingrediente.nombre}}</td>
+          </tr>
+      </tbody>
+  </table>
+  <h5>Grupo de LÁCTEOS</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Alimento</th>
+          <th scope="col">Una porción equivale a:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingrediente of lacteos">
+          <td>{{ingrediente.nombre}}</td>
+          <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+        </tr>
+      </tbody>
+  </table>
+
+  <h5>Grupo de LEGUMINOSAS</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Alimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingrediente of leguminosas">
+          <td>{{ingrediente.nombre}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <h5>Grupo de GRASAS</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Alimento</th>
+          <th scope="col">Una porción equivale a:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingrediente of grasas">
+          <td>{{ingrediente.nombre}}</td>
+          <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <h5>Grupo de AZÚCARES</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Alimento</th>
+          <th scope="col">Una porción equivale a:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingrediente of azucares">
+          <td>{{ingrediente.nombre}}</td>
+          <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <h5>SE PUEDEN CONSUMIR LIBREMENTE</h5>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Alimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingrediente of libres">
+          <th>{{ingrediente.nombre}}</th>
+        </tr>
+      </tbody>
+  </table>
+</div>
+  

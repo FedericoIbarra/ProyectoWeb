@@ -26,6 +26,12 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  public logout(){
+    this.usr = null;
+    this.isLogged = false;
+    window.location.reload();
+  }
+
 
 
 }

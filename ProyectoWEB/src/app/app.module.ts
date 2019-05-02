@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 /** npm install ngx-bootstrap --save */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InfoNutrimentalComponent } from './info-nutrimental/info-nutrimental.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ListaPorcionesComponent } from './home/lista-porciones/lista-porciones.component';
@@ -24,6 +25,7 @@ import { RegistrarModal } from './header/registrar-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
+    InfoNutrimentalComponent,
     HeaderComponent,
     HomeComponent,
     ListaPorcionesComponent,
