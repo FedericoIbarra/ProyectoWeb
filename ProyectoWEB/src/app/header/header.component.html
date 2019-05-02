@@ -1,4 +1,4 @@
-<div class="header fixed-top">
+<div class="header fixed-top" style="margin-bottom: 9%">
   <h1 style="padding-left: 3%;">Home</h1>
   <nav class="nav-cus  navbar-expand-lg navbar-dark bg-dark" >
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,12 +23,12 @@
 
      <div *ngIf="!isLogged" class="login-nav">
         <demo-modal-service-static (sendLog)="setSession($event)">Ingresar</demo-modal-service-static>
-        <registrar-modal></registrar-modal>        
+        <registrar-modal></registrar-modal>
      </div>
 
-     <div *ngIf="isLogged" class="login-nav">
-      <h4>{{usr.nombre}}</h4>
-      <button class="alert alert-danger" (click) = "logout()">Logout</button>
+     <div *ngIf="isLogged" class="login-nav d-flex p-2 flex-row">
+        <h4>{{usr.nombre}}</h4>
+        <button class="btn-nav btn btn-success my-2 my-sm-0" (click)="logout()">Logout</button>
      </div>
 
 
