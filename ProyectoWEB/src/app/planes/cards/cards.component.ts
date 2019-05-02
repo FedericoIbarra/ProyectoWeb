@@ -3,7 +3,7 @@ import { PlanesService } from '../planes.service';
 import { Plan } from 'src/app/data-models/plan';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/login.service';
-import { User } from 'src/app/data-models/User';
+import { User } from 'src/app/data-models/user';
 
 
 @Component({
@@ -56,7 +56,7 @@ export class CardsComponent implements OnInit {
     this.planesService.editPlan(this.planmodal);
 
   }
- 
+
   delete() {
     // window.alert('Cambios se han guardado con éxito');
     this.planesService.delete(this.planmodal);

@@ -3,7 +3,7 @@ import { Plan } from '../data-models/plan';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Porcion } from '../data-models/Porcion';
 import { LoginService } from '../login.service';
-import { User } from '../data-models/User';
+import { User } from '../data-models/user';
 
 @Component({
   selector: 'app-planes',

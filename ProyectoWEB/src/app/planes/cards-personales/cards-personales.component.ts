@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Plan } from 'src/app/data-models/plan';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/login.service';
-import { User } from 'src/app/data-models/User';
+import { User } from 'src/app/data-models/user';
 @Component({
   selector: 'app-cards-personales',
   templateUrl: './cards-personales.component.html',
