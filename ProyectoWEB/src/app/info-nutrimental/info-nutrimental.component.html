@@ -8,7 +8,6 @@
   <table class="table table-bordered">
       <thead class="thead-dark">
           <tr>
-              <th scope="col">Alimento</th>
               <th scope="col">Una porción equivale a 30 gr</th>
           </tr>
       </thead>
@@ -16,35 +15,20 @@
           <tr>
               <td class="table-success" colspan="2"><b>BAJO</b> contenido de grasas:</td>
           </tr>
-          <tr>
-              <th scope="row">Res</th>
-              <td>filete, lengua, falda</td>
-          </tr>
-          <tr>
-              <th scope="row">Cordero</th>
-              <td>lomo, pierna, costilla</td>
+          <tr *ngFor="let ingrediente of carneBajoContenidoGrasas">
+            <td>{{ingrediente.nombre}}</td>
           </tr>
           <tr>
               <td class="table-primary" colspan="2"><b>MEDIO</b> contenido de grasas:</td>
           </tr>
-          <tr>
-              <th scope="row">Res</th>
-              <td>molida comercial, chuleta, bola, maciza, espaldilla</td>
-          </tr>
-          <tr>
-              <th scope="row">Cerdo</th>
-              <td>jamón de lomo, lomo, espaldilla</td>
+          <tr *ngFor="let ingrediente of carneMedioContenidoGrasas">
+            <td>{{ingrediente.nombre}}</td>
           </tr>
           <tr>
               <td class="table-danger" colspan="2"><b>ALTO</b> contenido de grasas:</td>
           </tr>
-          <tr>
-              <th scope="row">Res</th>
-              <td>costilla</td>
-          </tr>
-          <tr>
-              <th scope="row">Cordero</th>
-              <td>pecho y menudo</td>
+          <tr *ngFor="let ingrediente of carneAltoContenidoGrasas">
+            <td>{{ingrediente.nombre}}</td>
           </tr>
       </tbody>
   </table>
@@ -57,18 +41,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Tortilla de Maíz</th>
-          <td>1 pza</td>
-        </tr>
-        <tr>
-          <th scope="row">Bolillo Integral</th>
-          <td>1/2 pza</td>
-        </tr>
-        <tr>
-          <th scope="row">Pan Tostado</th>
-          <td>1 pza</td>
-        </tr>
+          <tr *ngFor="let ingrediente of cereales">
+            <td>{{ingrediente.nombre}}</td>
+            <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
+          </tr>
       </tbody>
   </table>
   <h5>Grupo de FRUTAS</h5>
@@ -83,44 +59,28 @@
       <tr>
         <td class="table-danger" colspan="2"><b>ALTO</b> contenido de fibra:</td>
       </tr>
-      <tr>
-        <th scope="row">Fresa</th>
-        <td>1 pza</td>
+      <tr *ngFor="let ingrediente of frutasAltoContenidoFibra">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
       </tr>
-      <tr>
-        <th scope="row">Granada</th>
-        <td>1/2 pza</td>
-      </tr>
-      <td colspan="2">JUGOS:</td>                  
-      <tr>
-        <th scope="row">Ciruela</th>
-        <td>1/2 tz cocida</td>
-      </tr>
-      <tr>
-        <th scope="row">Manzana</th>
-        <td>10 pzas</td>
+      <td colspan="2"><b>JUGOS:</b></td>                  
+      <tr *ngFor="let ingrediente of jugos">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
       </tr>
       <tr>
         <td class="table-primary" colspan="2"><b>MEDIANO</b> contenido de fibra:</td>
       </tr>
-      <tr>
-        <th scope="row">Ciruela</th>
-        <td>6 pzas</td>
-      </tr>
-      <tr>
-        <th scope="row">Chabacano</th>
-        <td>6 cuadritos</td>
+      <tr *ngFor="let ingrediente of frutasMedioContenidoFibra">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
       </tr>
       <tr>
         <td class="table-success" colspan="2"><b>BAJO</b> contenido de fibra:</td>
       </tr>
-      <tr>
-        <th scope="row">Ciruela pasa</th>
-        <td>4 medianas</td>
-      </tr>
-      <tr>
-        <th scope="row">Dátil</th>
-        <td>2 pzas</td>
+      <tr *ngFor="let ingrediente of frutasBajoContenidoFibra">
+        <td>{{ingrediente.nombre}}</td>
+        <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
       </tr>
     </tbody>
   </table>
@@ -138,11 +98,8 @@
           <tr>
               <td colspan="2">Estas verduras se pueden consumir libremente</td>
           </tr>
-          <tr>
-              <th scope="row">Cilantro</th>
-          </tr>
-          <tr>
-              <th scope="row">Acelgas</th>
+          <tr *ngFor="let ingrediente of verdurasGrupoA">
+            <td>{{ingrediente.nombre}}</td>
           </tr>
           <tr>
               <td class="table-warning"  colspan="2">Verduras de tipo <b>B</b></td>
@@ -150,11 +107,8 @@
           <tr>
               <td colspan="2">Una porción es <b>media taza</b> de:</td>
           </tr>
-          <tr>
-              <th scope="row">Betabel</th>
-          </tr>
-          <tr>
-              <th scope="row">Calabaza</th>
+          <tr *ngFor="let ingrediente of verdurasGrupoB">
+            <td>{{ingrediente.nombre}}</td>
           </tr>
       </tbody>
   </table>
@@ -167,13 +121,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Leche entera</th>
-          <td>1/2 tz</td>
-        </tr>
-        <tr>
-          <th scope="row">Leche descremada</th>
-          <td>1 tz</td>
+        <tr *ngFor="let ingrediente of lacteos">
+          <td>{{ingrediente.nombre}}</td>
+          <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
         </tr>
       </tbody>
   </table>
@@ -186,14 +136,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="row">Una porción es media taza y debe de ser cocida:</td>
-        </tr>
-        <tr>
-          <th scope="row">Frijol</th>
-        </tr>
-        <tr>
-          <th scope="row">Haba</th>
+        <tr *ngFor="let ingrediente of leguminosas">
+          <td>{{ingrediente.nombre}}</td>
         </tr>
       </tbody>
   </table>
@@ -206,13 +150,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Aceite de maíz</th>
-          <td>1 cdita</td>
-        </tr>
-        <tr>
-          <th scope="row">Aceitunas de oliva</th>
-          <td>1 cdita</td>
+        <tr *ngFor="let ingrediente of grasas">
+          <td>{{ingrediente.nombre}}</td>
+          <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
         </tr>
       </tbody>
   </table>
