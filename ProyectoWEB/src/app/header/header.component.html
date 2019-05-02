@@ -23,12 +23,12 @@
 
      <div *ngIf="!isLogged" class="login-nav">
         <demo-modal-service-static (sendLog)="setSession($event)">Ingresar</demo-modal-service-static>
-        <registrar-modal></registrar-modal>
-        
+        <registrar-modal></registrar-modal>        
      </div>
 
      <div *ngIf="isLogged" class="login-nav">
       <h4>{{usr.nombre}}</h4>
+      <button class="alert alert-danger" (click) = "logout()">Logout</button>
      </div>
 
 
