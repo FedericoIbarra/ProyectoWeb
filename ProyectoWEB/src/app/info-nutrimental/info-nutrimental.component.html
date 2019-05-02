@@ -225,13 +225,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Azúcar</th>
-          <td>1 cda</td>
-        </tr>
-        <tr>
-          <th scope="row">Horchata</th>
-          <td>1/2 tz</td>
+        <tr *ngFor="let ingrediente of azucares">
+          <td>{{ingrediente.nombre}}</td>
+          <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
         </tr>
       </tbody>
   </table>
@@ -243,11 +239,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Agua Mineral</th>
-        </tr>
-        <tr>
-          <th scope="row">Mostaza</th>
+        <tr *ngFor="let ingrediente of libres">
+          <th>{{ingrediente.nombre}}</th>
         </tr>
       </tbody>
   </table>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ingredientes } from '../data-models/ingredientes';
+import { IngredientesService} from '../info-nutrimental/ingredientes.service'
 
 @Component({
   selector: 'app-info-nutrimental',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoNutrimentalComponent implements OnInit {
 
-  constructor() { }
+  public azucares: Ingredientes[] = [];
+  public libres: Ingredientes[] = [];
+  
+
+  constructor(private ingredientesService: IngredientesService) { }
 
   ngOnInit() {
+    this.azucares = this.ingredientesService.getAzucares();
+    this.libres = this.ingredientesService.getLibres();
   }
 
 }
