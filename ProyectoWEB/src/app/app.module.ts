@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule} from '@angular/common/http'
 /** npm install ngx-bootstrap --save */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { CardsComponent } from './planes/cards/cards.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CardsPersonalesComponent } from './planes/cards-personales/cards-personales.component';
 import { RegistrarModal } from './header/registrar-modal.component';
+
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { RegistrarModal } from './header/registrar-modal.component';
     ModalModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     LoginService,
