@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredientes } from '../data-models/ingredientes';
 import { IngredientesService} from '../info-nutrimental/ingredientes.service'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-info-nutrimental',
@@ -26,7 +27,7 @@ export class InfoNutrimentalComponent implements OnInit {
   public libres: Ingredientes[] = [];  
   
 
-  constructor(private ingredientesService: IngredientesService) { }
+  constructor(private ingredientesService: IngredientesService, private http: HttpClient) { }
 
   ngOnInit() {
     this.carneBajoContenidoGrasas = this.ingredientesService.getCarnesBajoContenidoGrasas();
@@ -44,6 +45,14 @@ export class InfoNutrimentalComponent implements OnInit {
     this.grasas = this.ingredientesService.getGrasas();
     this.azucares = this.ingredientesService.getAzucares();
     this.libres = this.ingredientesService.getLibres();
+  }
+
+  posts: any;
+
+  readonly ROOT_URL = 'http://127.0.0.1:3000'
+  
+  getHome(){
+    this.posts = this.http.get(this.ROOT_URL + '/api/azucares');
   }
 
 }

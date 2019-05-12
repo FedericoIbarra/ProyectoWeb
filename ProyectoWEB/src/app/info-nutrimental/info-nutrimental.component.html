@@ -1,4 +1,8 @@
 <div class ="cont body d-flex flex-column">
+    <button (click)="getHome()">alsdkjflasdkjfasdf</button>
+    <div *ngFor="let post of posts | async">
+        {{post | json}}
+    </div>
   <h3 style="padding-top: 2%;">INFORMACIÓN NUTRIMENTAL</h3>
   <p>En la nutrición, es muy importante saber el tipo de porciones que se manejan y la cantidad de que representa cada uno de estos alimentos.</p>
   <p>A continuación, mostramos la tabla de intercambios de alimentos equivalentes a sus porciones, de acuerdo con su grupo alimenticio:</p>
