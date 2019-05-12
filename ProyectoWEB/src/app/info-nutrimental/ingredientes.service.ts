@@ -7,6 +7,7 @@ import { Ingredientes } from '../data-models/ingredientes';
 export class IngredientesService {
 
   lastIDS = 0;
+  
 
 
   carnesBajoContenidoGrasas: Ingredientes[] = [

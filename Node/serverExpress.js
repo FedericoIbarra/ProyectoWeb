@@ -8,8 +8,26 @@ const chalk = require('chalk');
 const cors = require('cors');
 const port = 3000;
 
+let azucares = JSON.parse(fs.readFileSync('azucares.json'));
+let carnesACG = JSON.parse(fs.readFileSync('carnesAltoContenidoGrasas.json'));
+let carnesMCG = JSON.parse(fs.readFileSync('carnesMedioContenidoGrasas.json'));
+let carnesBCG = JSON.parse(fs.readFileSync('carnesBajoContenidoGrasas.json'));
+let cereales = JSON.parse(fs.readFileSync('cereales.json'));
+let frutasACF = JSON.parse(fs.readFileSync('frutasAltoContenidoFibra.json'));
+let frutasMCF = JSON.parse(fs.readFileSync('frutasMedioContenidoFibra.json'));
+let frutasBCF = JSON.parse(fs.readFileSync('frutasBajoContenidoFibra.json'));
+let grasas = JSON.parse(fs.readFileSync('grasas.json'));
+let jugos = JSON.parse(fs.readFileSync('jugos.json'));
+let lacteos = JSON.parse(fs.readFileSync('lacteos.json'));
+let leguminosas = JSON.parse(fs.readFileSync('leguminosas.json'));
+let libres = JSON.parse(fs.readFileSync('libres.json'));
+let verdurasGA = JSON.parse(fs.readFileSync('verdurasGrupoA.json'));
+let verdurasGB = JSON.parse(fs.readFileSync('verdugarGrupoB.json'));
+
 
 let jsonParser = bodyParser.json();
+
+
 
 
 app.listen(port, () => console.log("App running on port {{port}}"));
