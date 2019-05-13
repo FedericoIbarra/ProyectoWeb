@@ -11,7 +11,7 @@ import { Porcion } from './data-models/Porcion';
 export class LoginService {
   cambiaPlanPersonal = new Subject<Plan[]>();
   private users = [
-    new User(this.getNewId(), 'admin', 'admin', 22, true, 'Eduardo', 'Lafaire', 56, 
+    new User(this.getNewId(), 'admin', 'admin', 22, true, 'Eduardo', 'Lafaire', 56,
     [ new Plan(0, false,  'Crecer Músculo',
     'Plan para poder ejercitarse',
     [new Porcion(0, 'Verdura', 3), new Porcion(1, 'Cereales', 5), new Porcion(2, 'Leguminosas', 4),
@@ -26,23 +26,23 @@ export class LoginService {
       [new Porcion(0, 'Verdura', 0), new Porcion(1, 'Cereales', 0), new Porcion(2, 'Leguminosas', 0),
       new Porcion(3, 'Lacteos', 1), new Porcion(4, 'Grasas', 0), new Porcion(5, 'Frutas', 6), new Porcion(6, 'Azucares', 0),
       new Porcion(7, 'Carnes', 0)])),
-      
-      new User(this.getNewId(), 'plan', 'plan', 22, false, 'Federico', 'Ibarra', 56, 
+
+      new User(this.getNewId(), 'plan', 'plan', 22, false, 'Federico', 'Ibarra', 56,
       [ new Plan(0, false,  'Crecer Músculo',
       'Plan para poder ejercitarse',
       [new Porcion(0, 'Verdura', 3), new Porcion(1, 'Cereales', 5), new Porcion(2, 'Leguminosas', 4),
-        new Porcion(3, 'Lacteos', 8), new Porcion(0, 'Grasas', 3), new Porcion(0, 'Frutas', 3), new Porcion(0, 'Azucares', 0),
-        new Porcion(0, 'Carnes', 3)]),
+        new Porcion(3, 'Lacteos', 8), new Porcion(4, 'Grasas', 3), new Porcion(5, 'Frutas', 3), new Porcion(6, 'Azucares', 0),
+        new Porcion(7, 'Carnes', 3)]),
       new Plan(1, false,  'Bajar de Peso',
         'En esta dieta alta en frutas y verduras obtendras lo necesario para bajar hasta 20 kilos',
         [new Porcion(0, 'Verdura', 7), new Porcion(1, 'Cereales', 3), new Porcion(2, 'Leguminosas', 4),
-        new Porcion(3, 'Lacteos', 1), new Porcion(0, 'Grasas', 0), new Porcion(0, 'Frutas', 6), new Porcion(0, 'Azucares', 0),
-        new Porcion(0, 'Carnes', 3)])], 1,  
+        new Porcion(3, 'Lacteos', 1), new Porcion(4, 'Grasas', 0), new Porcion(5, 'Frutas', 6), new Porcion(6, 'Azucares', 0),
+        new Porcion(7, 'Carnes', 3)])], 1,
         new Plan(1, false,  'PlanElegido',
         'Plan para probar las porciones',
         [new Porcion(0, 'Verdura', 10), new Porcion(1, 'Cereales', 5), new Porcion(2, 'Leguminosas', 7),
-        new Porcion(3, 'Lacteos', 1), new Porcion(0, 'Grasas', 4), new Porcion(0, 'Frutas', 6), new Porcion(0, 'Azucares', 5),
-        new Porcion(0, 'Carnes', 9)]))
+        new Porcion(3, 'Lacteos', 1), new Porcion(4, 'Grasas', 4), new Porcion(5, 'Frutas', 6), new Porcion(6, 'Azucares', 5),
+        new Porcion(7, 'Carnes', 9)]))
   ];
   private user: User;
   /*

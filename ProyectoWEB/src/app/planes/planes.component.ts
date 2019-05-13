@@ -50,8 +50,8 @@ export class PlanesComponent implements OnInit {
   resetPlanModal(){
     this.planmodal =  new Plan(0, true, '', '',
     [new Porcion(0, 'Verdura', 0), new Porcion(1, 'Cereales', 0), new Porcion(2, 'Leguminosas', 0),
-    new Porcion(3, 'Lacteos', 0), new Porcion(0, 'Grasas', 0), new Porcion(0, 'Frutas', 0), new Porcion(0, 'Azucares', 0),
-    new Porcion(0, 'Carnes', 0)]);
+    new Porcion(3, 'Lacteos', 0), new Porcion(4, 'Grasas', 0), new Porcion(5, 'Frutas', 0), new Porcion(6, 'Azucares', 0),
+    new Porcion(7, 'Carnes', 0)]);
   }
 
 }
