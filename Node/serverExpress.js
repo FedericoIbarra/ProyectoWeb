@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const cors = require('cors');
 const port = 3000;
+const https = require('https');
+
+
 
 
 
@@ -35,7 +38,17 @@ let users = JSON.parse(fs.readFileSync('./JSON_Files/users.json'));
 let jsonParser = bodyParser.json();
 
 
-app.listen(port, () => console.log(`App running on port 127.0.0.1:${port}`));
+//app.listen(port, () => console.log(`App running on port 127.0.0.1:${port}`));
+// we will pass our 'app' to 'https' server
+https.createServer({
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem'),
+    passphrase: 'cisco'
+}, app)
+.listen(443, () => {
+  console.log("Server running on https://127.0.0.1");
+});
+
 
 //Middleware to see req
 app.use((req, res, next) => {

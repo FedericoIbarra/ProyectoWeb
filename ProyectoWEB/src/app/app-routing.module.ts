@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PlanesComponent } from './planes/planes.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { InfoNutrimentalComponent} from './info-nutrimental/info-nutrimental.component';
+//import { InfoNutrimentalComponent} from './info-nutrimental/info-nutrimental.component';
+import { InfoNutrimentalComponent } from './info-nutrimental/info-nutrimental.component';
+
 
 
 

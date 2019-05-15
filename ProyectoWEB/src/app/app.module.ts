@@ -22,7 +22,7 @@ import { CardsComponent } from './planes/cards/cards.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CardsPersonalesComponent } from './planes/cards-personales/cards-personales.component';
 import { RegistrarModal } from './header/registrar-modal.component';
-import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatNativeDateModule } from "@angular/material";
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MaterialModule } from './material/material.module'
@@ -70,8 +70,8 @@ import { MaterialModule } from './material/material.module'
     LoginService,
     FormsModule
   ],
-  entryComponents: [InfoNutrimentalComponent],
-  bootstrap: [AppComponent, InfoNutrimentalComponent]
+//  entryComponents: [InfoNutrimentalComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 
