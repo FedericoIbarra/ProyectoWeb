@@ -1,5 +1,5 @@
 'use-strict'
-
+const moment = require('moment');
 const express = require('express');
 const fs = require('fs');
 const app = express();
@@ -7,8 +7,9 @@ const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const cors = require('cors');
 const port = 3000;
-
-
+var jwt = require('jwt-simple');
+app.set('jwtTokenSecret', 'ProyectoWeb')
+var tokens;
 
 let azucares = JSON.parse(fs.readFileSync('./JSON_Files/azucares.json'));
 let carnesACG = JSON.parse(fs.readFileSync('./JSON_Files/carnesAltoContenidoGrasas.json'));
@@ -27,7 +28,7 @@ let verdurasGA = JSON.parse(fs.readFileSync('./JSON_Files/verdurasGrupoA.json'))
 let verdurasGB = JSON.parse(fs.readFileSync('./JSON_Files/verdurasGrupoB.json'));
 let planes = JSON.parse(fs.readFileSync('./JSON_Files/planes.json'));
 
-
+ 
 //Users
 let users = JSON.parse(fs.readFileSync('./JSON_Files/users.json'));
 
@@ -65,7 +66,7 @@ app.route('/aboutUs').get((req, res) => console.log("Hola Mundo"));
 
 app.route('/api/planes')
     .get((req, res) => res.json(planes))
-    .post((req, res) => {
+    .post(auth,(req, res) => {
         console.log(req.body)
         if (req.body.id != undefined && req.body.nombre && req.body.descripcion && req.body.porciones && req.body.esPersonal != undefined) {
             planes.push(req.body);
@@ -89,7 +90,7 @@ app.route('/api/planes/:id')
             error: 'ID no existe'
         })
     })
-    .patch((req, res) => {
+    .patch(auth,(req, res) => {
         console.log(req.body)
         let id = req.params.id;
         if (PatchPlan(id, req.body)) {
@@ -99,7 +100,7 @@ app.route('/api/planes/:id')
             error: "No se encontró ID o faltan datos"
         })
     })
-    .delete((req,res)=>{
+    .delete(auth,(req,res)=>{
         let id = req.params.id;
         let p = planes.findIndex(pl => pl.id == id);
         if (p>=0) {
@@ -161,14 +162,50 @@ app.post('/api/login/', jsonParser, (req, res) => {
         };
     });
 
-    if (result) res.status(200).json({
+    if (result){
+        var expires = moment().add(5, 'minutes').valueOf();
+        var token = jwt.encode({
+            iss: usr.id,
+            exp: expires
+        }, app.get('jwtTokenSecret'));
+        tokens= { token: token,
+            expires: expires,
+           usuario: usr}
+     res.status(200).json({
         "status": true
     });
+}
     else res.status(404).json({
-        "statu": false
+        "status": false
     });
 });
+app.route(auth,'/api/logout')
+        .post((req,res)=>{
 
+          tokens = undefined
+          return res.sendStatus(204);  
+
+
+
+        })
+
+function auth(req,res,next){
+        if(tokens!=undefined){
+            try{
+                if (tokens.expires <= Date.now()) {
+                   return res.send('Access token expired', 400);
+                } 
+                next();
+            }catch(err){
+            res.send('No token', 406);
+
+        } 
+        } else {
+            res.send('No hay token', 406);
+        }
+
+
+}
 //Información Nutrimental
 app.route('/api/azucares')
     .get((req, res) => res.json(azucares))
