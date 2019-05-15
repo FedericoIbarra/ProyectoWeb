@@ -32,8 +32,9 @@
           </tr>
       </tbody>
   </table>
+
   <h5>Grupo de CEREALES</h5>
-  <table class="table table-bordered">
+  <!--<table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Alimento</th>
@@ -46,7 +47,36 @@
             <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
           </tr>
       </tbody>
-  </table>
+  </table> -->
+
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="cerealesFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="cerealesSource">
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="alimento">
+            <th mat-header-cell *matHeaderCellDef> Alimento </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="porcion">
+            <th mat-header-cell *matHeaderCellDef> Porción </th>
+            <td mat-cell *matCellDef="let element">{{element.cantidad}} {{element.porcion}}</td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+  </div>
+
+
   <h5>Grupo de FRUTAS</h5>
   <table class="table table-bordered">
     <thead class="thead-dark">
@@ -63,7 +93,7 @@
         <td>{{ingrediente.nombre}}</td>
         <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
       </tr>
-      <td colspan="2"><b>JUGOS:</b></td>                  
+      <td colspan="2"><b>JUGOS:</b></td>
       <tr *ngFor="let ingrediente of jugos">
         <td>{{ingrediente.nombre}}</td>
         <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
@@ -113,7 +143,7 @@
       </tbody>
   </table>
   <h5>Grupo de LÁCTEOS</h5>
-  <table class="table table-bordered">
+  <!-- <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Alimento</th>
@@ -126,10 +156,35 @@
           <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
         </tr>
       </tbody>
-  </table>
+  </table> -->
+
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="lacteosFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="lacteosSource" class="mat-elevation-z8">
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="alimento">
+        <th mat-header-cell *matHeaderCellDef> Alimento </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="porcion">
+        <th mat-header-cell *matHeaderCellDef> Una porción equivale a: </th>
+        <td mat-cell *matCellDef="let element">{{element.cantidad}} {{element.porcion}}</td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+    </table>
+  </div>
 
   <h5>Grupo de LEGUMINOSAS</h5>
-  <table class="table table-bordered">
+  <!-- <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Alimento</th>
@@ -140,9 +195,27 @@
           <td>{{ingrediente.nombre}}</td>
         </tr>
       </tbody>
-  </table>
+  </table> -->
+
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="leguminosasFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="leguminosasSource" class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="alimento">
+        <th mat-header-cell *matHeaderCellDef> Alimento </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
   <h5>Grupo de GRASAS</h5>
-  <table class="table table-bordered">
+  <!-- <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Alimento</th>
@@ -155,9 +228,34 @@
           <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
         </tr>
       </tbody>
-  </table>
+  </table> -->
+
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="grasasFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="grasasSource" class="mat-elevation-z8">
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="alimento">
+        <th mat-header-cell *matHeaderCellDef> Alimento </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="porcion">
+        <th mat-header-cell *matHeaderCellDef> Una porción equivale a: </th>
+        <td mat-cell *matCellDef="let element">{{element.cantidad}} {{element.porcion}}</td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+    </table>
+  </div>
   <h5>Grupo de AZÚCARES</h5>
-  <table class="table table-bordered">
+  <!-- <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Alimento</th>
@@ -170,9 +268,34 @@
           <td>{{ingrediente.cantidad}} {{ingrediente.porcion}}</td>
         </tr>
       </tbody>
-  </table>
-  <h5>SE PUEDEN CONSUMIR LIBREMENTE</h5>
-  <table class="table table-bordered">
+  </table>- -->
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="azucaresFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="azucaresSource" class="mat-elevation-z8">
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="alimento">
+        <th mat-header-cell *matHeaderCellDef> Alimento </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="porcion">
+        <th mat-header-cell *matHeaderCellDef> Una porción equivale a: </th>
+        <td mat-cell *matCellDef="let element">{{element.cantidad}} {{element.porcion}}</td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+    </table>
+  </div>
+  
+  <h5 >SE PUEDEN CONSUMIR LIBREMENTE</h5>
+  <!-- <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Alimento</th>
@@ -183,6 +306,23 @@
           <th>{{ingrediente.nombre}}</th>
         </tr>
       </tbody>
-  </table>
+  </table> -->
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="filterLibres($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="libresSource" class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="alimento">
+        <th mat-header-cell *matHeaderCellDef> Alimento </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
 </div>
-  
+

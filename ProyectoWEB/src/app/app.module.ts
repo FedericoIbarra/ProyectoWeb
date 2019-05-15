@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule} from '@angular/common/http'
 /** npm install ngx-bootstrap --save */
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,12 @@ import { CardsComponent } from './planes/cards/cards.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CardsPersonalesComponent } from './planes/cards-personales/cards-personales.component';
 import { RegistrarModal } from './header/registrar-modal.component';
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
+  MatSortModule, MatTableModule, MatNativeDateModule } from "@angular/material";
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { MaterialModule } from './material/material.module'
+
+
 
 
 
@@ -47,12 +54,25 @@ import { RegistrarModal } from './header/registrar-modal.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MaterialModule,
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   providers: [
     LoginService,
     FormsModule
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [InfoNutrimentalComponent],
+  bootstrap: [AppComponent, InfoNutrimentalComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
