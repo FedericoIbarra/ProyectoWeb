@@ -8,6 +8,8 @@ const chalk = require('chalk');
 const cors = require('cors');
 const port = 3000;
 
+
+
 let azucares = JSON.parse(fs.readFileSync('./JSON_Files/azucares.json'));
 let carnesACG = JSON.parse(fs.readFileSync('./JSON_Files/carnesAltoContenidoGrasas.json'));
 let carnesMCG = JSON.parse(fs.readFileSync('./JSON_Files/carnesMedioContenidoGrasas.json'));
@@ -25,10 +27,22 @@ let verdurasGA = JSON.parse(fs.readFileSync('./JSON_Files/verdurasGrupoA.json'))
 let verdurasGB = JSON.parse(fs.readFileSync('./JSON_Files/verdurasGrupoB.json'));
 
 
+//Users
+let users = JSON.parse(fs.readFileSync('./JSON_Files/users.json'));
+
+
 let jsonParser = bodyParser.json();
 
 
 app.listen(port, () => console.log(`App running on port 127.0.0.1:${port}`));
+
+//Middleware to see req
+app.use((req, res, next) => {
+  console.log("Metodo: " + req.method);
+	console.log("URL: " + req.url);
+  next();
+});
+
 
 app.use(jsonParser);
 app.use(cors());
@@ -40,6 +54,48 @@ app.route('/plans').get((req, res) => console.log("Hola Mundo"));
 app.route('/info').get((req, res) => console.log("Hola Mundo"));
 app.route('/aboutUs').get((req, res) => console.log("Hola Mundo"));
 
+/********************************************************************************
+*********************************************************************************
+************************            Login         *******************************
+*********************************************************************************
+*********************************************************************************
+*/
+
+
+app.post('/api/logup', jsonParser, (req,res) => {
+
+  let newUser = req.body;
+  if (typeof newUser.username === 'string' &&
+      typeof newUser.edad === 'number' &&
+      typeof newUser.password === 'string' &&
+      typeof newUser.isAdmin === 'boolean' &&
+      typeof newUser.nombre === 'string' &&
+      typeof newUser.apellido === 'string'
+    ) {
+      users.push(newUser);
+      //('./JSON_Files/users.json')
+      fs.writeFile('./JSON_Files/users.json', JSON.stringify(users));
+      console.log(newUser);
+      res.status(201).json(newUser);
+    } else {
+      res.status(406).send('Invalid data');
+    }
+});
+
+app.post('/api/login/', jsonParser, (req, res) => {
+  let usr = req.body;
+  let result = false;
+
+  users.forEach(u => {
+    if (u.username == usr.username && u.password == usr.password) {
+      result = true;
+    };
+  });
+
+  if (result) res.status(200).json({"status": true});
+  else res.status(404).json({"statu": false});
+});
+
 //Información Nutrimental
 app.route('/api/azucares')
                         .get((req, res) => res.json(azucares))
@@ -47,7 +103,7 @@ app.route('/api/azucares')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 azucares.push(req.body);
                                 fs.writeFileSync('./JSON_Files/azucares.json', JSON.stringify(azucares))
@@ -55,9 +111,9 @@ app.route('/api/azucares')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/carnesACG')
                         .get((req, res) => res.json(carnesACG))
@@ -65,7 +121,7 @@ app.route('/api/carnesACG')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 carnesACG.push(req.body);
                                 fs.writeFileSync('./JSON_Files/carnesAltoContenidoGrasas.json', JSON.stringify(carnesACG))
@@ -73,9 +129,9 @@ app.route('/api/carnesACG')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/carnesMCG')
                         .get((req, res) => res.json(carnesMCG))
@@ -83,7 +139,7 @@ app.route('/api/carnesMCG')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 carnesMCG.push(req.body);
                                 fs.writeFileSync('./JSON_Files/carnesMedioContenidoGrasas.json', JSON.stringify(carnesMCG))
@@ -91,9 +147,9 @@ app.route('/api/carnesMCG')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/carnesBCG')
                         .get((req, res) => res.json(carnesBCG))
@@ -101,7 +157,7 @@ app.route('/api/carnesBCG')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 carnesBCG.push(req.body);
                                 fs.writeFileSync('./JSON_Files/carnesBajoContenidoGrasas.json', JSON.stringify(carnesBCG))
@@ -109,9 +165,9 @@ app.route('/api/carnesBCG')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/cereales')
                         .get((req, res) => res.json(cereales))
@@ -119,7 +175,7 @@ app.route('/api/cereales')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 cereales.push(req.body);
                                 fs.writeFileSync('./JSON_Files/cereales.json', JSON.stringify(cereales))
@@ -127,9 +183,9 @@ app.route('/api/cereales')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/frutasACF')
                         .get((req, res) => res.json(frutasACF))
@@ -137,7 +193,7 @@ app.route('/api/frutasACF')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 frutasACF.push(req.body);
                                 fs.writeFileSync('./JSON_Files/frutasAltoContenidoFibra.json', JSON.stringify(frutasACF))
@@ -145,9 +201,9 @@ app.route('/api/frutasACF')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/frutasMCF')
                         .get((req, res) => res.json(frutasMCF))
@@ -155,7 +211,7 @@ app.route('/api/frutasMCF')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 frutasMCF.push(req.body);
                                 fs.writeFileSync('./JSON_Files/frutasMedioContenidoFibra.json', JSON.stringify(frutasMCF))
@@ -163,9 +219,9 @@ app.route('/api/frutasMCF')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/frutasBCF')
                         .get((req, res) => res.json(frutasBCF))
@@ -173,7 +229,7 @@ app.route('/api/frutasBCF')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 frutasBCF.push(req.body);
                                 fs.writeFileSync('./JSON_Files/frutasBajoContenidoFibra.json', JSON.stringify(frutasBCF))
@@ -181,9 +237,9 @@ app.route('/api/frutasBCF')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/grasas')
                         .get((req, res) => res.json(grasas))
@@ -191,7 +247,7 @@ app.route('/api/grasas')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 grasas.push(req.body);
                                 fs.writeFileSync('./JSON_Files/grasas.json', JSON.stringify(grasas))
@@ -199,9 +255,9 @@ app.route('/api/grasas')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/jugos')
                         .get((req, res) => res.json(jugos))
@@ -209,7 +265,7 @@ app.route('/api/jugos')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 jugos.push(req.body);
                                 fs.writeFileSync('./JSON_Files/jugos.json', JSON.stringify(jugos))
@@ -217,9 +273,9 @@ app.route('/api/jugos')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/lacteos')
                         .get((req, res) => res.json(lacteos))
@@ -227,7 +283,7 @@ app.route('/api/lacteos')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 lacteos.push(req.body);
                                 fs.writeFileSync('./JSON_Files/lacteos.json', JSON.stringify(lacteos))
@@ -235,9 +291,9 @@ app.route('/api/lacteos')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/leguminosas')
                         .get((req, res) => res.json(leguminosas))
@@ -245,7 +301,7 @@ app.route('/api/leguminosas')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 leguminosas.push(req.body);
                                 fs.writeFileSync('./JSON_Files/leguminosas.json', JSON.stringify(leguminosas))
@@ -253,9 +309,9 @@ app.route('/api/leguminosas')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/libres')
                         .get((req, res) => res.json(libres))
@@ -263,7 +319,7 @@ app.route('/api/libres')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 libres.push(req.body);
                                 fs.writeFileSync('./JSON_Files/libres.json', JSON.stringify(libres))
@@ -271,9 +327,9 @@ app.route('/api/libres')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/verdurasGA')
                         .get((req, res) => res.json(verdurasGA))
@@ -281,7 +337,7 @@ app.route('/api/verdurasGA')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 verdurasGA.push(req.body);
                                 fs.writeFileSync('./JSON_Files/verdurasGrupoA.json', JSON.stringify(verdurasGA))
@@ -289,9 +345,9 @@ app.route('/api/verdurasGA')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
 app.route('/api/verdurasGB')
                         .get((req, res) => res.json(verdurasGB))
@@ -299,7 +355,7 @@ app.route('/api/verdurasGB')
                             console.log(req.body)
                             console.log(chalk.blue(JSON.stringify(req.body)));
                             console.log(chalk.blue(req.body.id));
-    
+
                             if(req.body.id && req.body.nombre && req.body.cantidad && req.body.porcion){
                                 verdurasGB.push(req.body);
                                 fs.writeFileSync('./JSON_Files/verdurasGrupoB.json', JSON.stringify(verdurasGB))
@@ -307,10 +363,7 @@ app.route('/api/verdurasGB')
                                 res.status(201).send();
                                 return;
                             }
-    
+
                             res.status(400).send({error: "Faltan atributos"});
-    
+
                         });
-
-
-
