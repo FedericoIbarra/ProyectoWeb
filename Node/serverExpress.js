@@ -40,6 +40,7 @@ app.listen(port, () => console.log(`App running on port 127.0.0.1:${port}`));
 app.use((req, res, next) => {
   console.log("Metodo: " + req.method);
 	console.log("URL: " + req.url);
+  console.log();
   next();
 });
 
