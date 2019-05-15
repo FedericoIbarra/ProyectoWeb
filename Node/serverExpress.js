@@ -39,6 +39,8 @@ let jsonParser = bodyParser.json();
 
 app.listen(port, () => console.log(`App running on port 127.0.0.1:${port}`));
 
+app.use('/', express.static(__dirname + '/public'));
+
 
 //Middleware to see req
 app.use((req, res, next) => {
@@ -52,7 +54,7 @@ app.use((req, res, next) => {
 app.use(jsonParser);
 app.use(cors());
 
-app.route('/').get((req, res) => res.send("Hola mundo"));
+//app.route('/').get((req, res) => res.send("Hola mundo"));
 app.route('/home').get((req, res) => console.log("Hola Mundo"));
 app.route('/portions').get((req, res) => console.log("Hola Mundo"));
 app.route('/plans').get((req, res) => console.log("Hola Mundo"));
