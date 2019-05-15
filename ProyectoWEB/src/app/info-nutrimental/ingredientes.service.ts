@@ -3,12 +3,13 @@ import { Ingredientes } from '../data-models/ingredientes';
 import { HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class IngredientesService {
 
-  readonly ROOT_URL = 'http://127.0.0.1:3000';
+  readonly ROOT_URL = 'http://3.92.180.155:3000';
 
   constructor(private http: HttpClient) { }
 
