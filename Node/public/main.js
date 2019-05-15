@@ -1369,7 +1369,7 @@ __webpack_require__.r(__webpack_exports__);
 var IngredientesService = /** @class */ (function () {
     function IngredientesService(http) {
         this.http = http;
-        this.ROOT_URL = 'http://127.0.0.1:3000';
+        this.ROOT_URL = 'http://3.92.180.155';
     }
     IngredientesService.prototype.getAzucares = function () {
         return this.http.get(this.ROOT_URL + '/api/azucares');
